@@ -1,0 +1,29 @@
+This is make-jpkg, maintained by Teodor MICU for Sun JDK 1.6 only.
+
+It is based upon the java-package, maintained by Jeroen van Wolffelaar
+<jeroen@wolffelaar.nl> and Barry Hawkins <barry@bytemason.org>.
+It is based upon the j2se-package application originally
+written by Hubert Schmid.
+
+The original source can always be found at:
+http://packages.qa.debian.org/j/java-package.html
+http://anonscm.debian.org/viewvc/pkg-java/old/mpkg-j2se/
+http://anoncvs.debian.org/cgi-bin/cvsweb.cgi/java-package/?cvsroot=pkg-java
+
+Copyright (C) 2012  Teodor MICU
+Copyright (C) 2005  Barry Hawkins
+Copyright (C) 2004-2005  Jeroen van Wolffelaar
+Copyright (C) 2003  Hubert Schmid
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+On Debian systems, the complete text of the GNU General Public License
+can be found in `/usr/share/common-licenses/GPL'.
