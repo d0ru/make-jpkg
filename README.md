@@ -1,8 +1,8 @@
 Create a Debian package (.deb) from a generic Sun JDK6 (.bin) package for Linux
 ===============================================================================
 
-A short quick-start by example
-------------------------------
+A very short HOWTO using 6u30 as an example
+-------------------------------------------
 1. install the tools needed to build the .deb package  
 `# apt-get install debhelper fakeroot`
 2. install the packages that are needed by JDK 6  
