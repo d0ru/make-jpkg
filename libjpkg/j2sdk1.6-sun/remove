@@ -1,0 +1,63 @@
+suffix=j2sdk1.6-sun
+j2se_base="/usr/lib/jvm/$suffix"
+
+if [ ! -e "$j2se_base/debian/info" ]; then
+	exit 0
+fi
+
+
+# alternative <program>
+program_alternative()
+{
+	local program="$1"
+	update-alternatives \
+		--remove "$program" "$j2se_base/bin/$program"
+}
+
+
+program_alternative appletviewer
+program_alternative apt
+program_alternative extcheck
+program_alternative idlj
+program_alternative jar
+program_alternative jarsigner
+program_alternative java
+program_alternative javac
+program_alternative javadoc
+program_alternative javah
+program_alternative javap
+program_alternative javaws
+program_alternative jconsole
+program_alternative jdb
+program_alternative jhat
+program_alternative jinfo
+program_alternative jmap
+program_alternative jps
+program_alternative jrunscript
+program_alternative jsadebugd
+program_alternative jstack
+program_alternative jstat
+program_alternative jstatd
+program_alternative keytool
+program_alternative native2ascii
+program_alternative orbd
+program_alternative pack200
+program_alternative policytool
+program_alternative rmic
+program_alternative rmid
+program_alternative rmiregistry
+program_alternative schemagen
+program_alternative serialver
+program_alternative servertool
+program_alternative tnameserv
+program_alternative unpack200
+program_alternative wsgen
+program_alternative wsimport
+program_alternative xjc
+
+rm -f /usr/lib/jvm/.j2sdk1.6-sun.jinfo
+
+cd /usr/lib/jvm/ && if [ -L "default-java" ]; then
+	[ "$(readlink default-java)" != "j2sdk1.6-sun" ] || \
+		unlink /usr/lib/jvm/default-java
+fi

@@ -1,0 +1,125 @@
+suffix=j2sdk1.6-sun
+j2se_base="/usr/lib/jvm/$suffix"
+priority="1600"
+
+if [ ! -e "$j2se_base/debian/info" ]; then
+	exit 0
+fi
+
+
+# alternative <program>
+program_alternative()
+{
+	local program="$1"
+	update-alternatives \
+		--install "/usr/bin/$program" "$program" \
+		"$j2se_base/bin/$program" "$priority" \
+		--slave "/usr/share/man/man1/$program.1.gz" "$program.1.gz" \
+		"$j2se_base/man/man1/$program.1.gz"
+}
+
+
+# alternative <program> without man page
+program_alternative_no_man()
+{
+	local program="$1"
+	update-alternatives \
+		--install "/usr/bin/$program" "$program" \
+		"$j2se_base/bin/$program" "$priority"
+}
+
+
+# kinit, klist, and ktab not installed at this
+# time; handling of /etc/krb5.conf not addressed
+# JRE-specific alternatives with JDKs cannot be
+# handled by our current approach
+program_alternative appletviewer
+program_alternative apt
+program_alternative extcheck
+program_alternative idlj
+program_alternative jar
+program_alternative jarsigner
+program_alternative java
+program_alternative javac
+program_alternative javadoc
+program_alternative javah
+program_alternative javap
+program_alternative javaws
+program_alternative jconsole
+program_alternative jdb
+program_alternative jhat
+program_alternative jinfo
+program_alternative jmap
+program_alternative jps
+program_alternative jrunscript
+program_alternative jsadebugd
+program_alternative jstack
+program_alternative jstat
+program_alternative jstatd
+program_alternative keytool
+program_alternative native2ascii
+program_alternative orbd
+program_alternative pack200
+program_alternative policytool
+program_alternative rmic
+program_alternative rmid
+program_alternative rmiregistry
+program_alternative schemagen
+program_alternative serialver
+program_alternative servertool
+program_alternative tnameserv
+program_alternative unpack200
+program_alternative wsgen
+program_alternative wsimport
+program_alternative xjc
+
+cat > /usr/lib/jvm/.j2sdk1.6-sun.jinfo << EOF
+name=j2sdk1.6-sun
+alias=java-1.6.0-sun
+priority=1600
+section=non-free
+
+jre java /usr/lib/jvm/j2sdk1.6-sun/jre/bin/java
+jre keytool /usr/lib/jvm/j2sdk1.6-sun/jre/bin/keytool
+jre orbd /usr/lib/jvm/j2sdk1.6-sun/jre/bin/orbd
+jre pack200 /usr/lib/jvm/j2sdk1.6-sun/jre/bin/pack200
+jre policytool /usr/lib/jvm/j2sdk1.6-sun/jre/bin/policytool
+jre rmid /usr/lib/jvm/j2sdk1.6-sun/jre/bin/rmid
+jre rmiregistry /usr/lib/jvm/j2sdk1.6-sun/jre/bin/rmiregistry
+jre servertool /usr/lib/jvm/j2sdk1.6-sun/jre/bin/servertool
+jre tnameserv /usr/lib/jvm/j2sdk1.6-sun/jre/bin/tnameserv
+jre unpack200 /usr/lib/jvm/j2sdk1.6-sun/jre/bin/unpack200
+jdk appletviewer /usr/lib/jvm/j2sdk1.6-sun/bin/appletviewer
+jdk apt /usr/lib/jvm/j2sdk1.6-sun/bin/apt
+jdk extcheck /usr/lib/jvm/j2sdk1.6-sun/bin/extcheck
+jdk idlj /usr/lib/jvm/j2sdk1.6-sun/bin/idlj
+jdk jar /usr/lib/jvm/j2sdk1.6-sun/bin/jar
+jdk jarsigner /usr/lib/jvm/j2sdk1.6-sun/bin/jarsigner
+jdk javac /usr/lib/jvm/j2sdk1.6-sun/bin/javac
+jdk javadoc /usr/lib/jvm/j2sdk1.6-sun/bin/javadoc
+jdk javah /usr/lib/jvm/j2sdk1.6-sun/bin/javah
+jdk javap /usr/lib/jvm/j2sdk1.6-sun/bin/javap
+jdk javaws /usr/lib/jvm/j2sdk1.6-sun/bin/javaws
+jdk jconsole /usr/lib/jvm/j2sdk1.6-sun/bin/jconsole
+jdk jdb /usr/lib/jvm/j2sdk1.6-sun/bin/jdb
+jdk jhat /usr/lib/jvm/j2sdk1.6-sun/bin/jhat
+jdk jinfo /usr/lib/jvm/j2sdk1.6-sun/bin/jinfo
+jdk jmap /usr/lib/jvm/j2sdk1.6-sun/bin/jmap
+jdk jps /usr/lib/jvm/j2sdk1.6-sun/bin/jps
+jdk jrunscript /usr/lib/jvm/j2sdk1.6-sun/bin/jrunscript
+jdk jsadebugd /usr/lib/jvm/j2sdk1.6-sun/bin/jsadebugd
+jdk jstack /usr/lib/jvm/j2sdk1.6-sun/bin/jstack
+jdk jstat /usr/lib/jvm/j2sdk1.6-sun/bin/jstat
+jdk jstatd /usr/lib/jvm/j2sdk1.6-sun/bin/jstatd
+jdk native2ascii /usr/lib/jvm/j2sdk1.6-sun/bin/native2ascii
+jdk rmic /usr/lib/jvm/j2sdk1.6-sun/bin/rmic
+jdk schemagen /usr/lib/jvm/j2sdk1.6-sun/bin/schemagen
+jdk serialver /usr/lib/jvm/j2sdk1.6-sun/bin/serialver
+jdk wsgen /usr/lib/jvm/j2sdk1.6-sun/bin/wsgen
+jdk wsimport /usr/lib/jvm/j2sdk1.6-sun/bin/wsimport
+jdk xjc /usr/lib/jvm/j2sdk1.6-sun/bin/xjc
+EOF
+
+if [ ! -e "/usr/lib/jvm/default-java" ]; then
+	ln -s j2sdk1.6-sun /usr/lib/jvm/default-java
+fi
