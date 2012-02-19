@@ -12,10 +12,7 @@
         # apt-get install java-common locales unixodbc
         # apt-get install libasound2 libx11-6 libxext6 libxi6 libxt6 libxtst6
 
-3. download `make-jpkg` scripts from github and unpack it
-
-        u@H:~$ wget "https://github.com/d0ru/make-jpkg/zipball/master"
-        u@H:~$ unzip "d0ru-make-jpkg-[some-random-string].zip"
+3. download `make-jpkg` project from github and unpack it (or just clone it)
 
 4. download Java SE 6 (JDK) package from java.sun.com
 
