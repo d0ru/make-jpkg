@@ -7,7 +7,7 @@ shopt -s nullglob
 ### global variables
 
 # version of this package
-version="0.42~muse"
+version="0.43"
 
 working_dir="$(pwd)"
 lib_dir="${working_dir}/libjpkg"
@@ -22,7 +22,7 @@ else
 fi
 
 if [ -z "$J2SE_PACKAGE_EMAIL" ]; then
-	maintainer_email="mteodor@museglobal.ro"
+	maintainer_email="mteodor@gmail.com"
 else
 	maintainer_email="$J2SE_PACKAGE_EMAIL"
 fi
