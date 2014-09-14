@@ -1,6 +1,13 @@
 `make-jpkg` is a simple collection of scripts that can help you create
 a Debian package (.deb) from a generic Sun JDK package for Linux (.bin).
 
+This tool is **again** properly maintained in Debian.
+I started to work on this script after the removal of [java-package][jpkg] package from Debian on april 2010.
+
+However, on february 2012 it was reintroduced into Debian's main repository and it supports **JDK/JRE** 6 and later (currently 7 and 8). I strongly **recommend** to use the Debian package, instead of this old version that I no longer maintain!
+
+[jpkg]: https://tracker.debian.org/pkg/java-package
+
 
 ### A very short HOWTO using Sun JDK 6u30 as an example
 
